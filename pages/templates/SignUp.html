@@ -1,0 +1,694 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="POST">{% csrf_token %}
+        {% for message in messages %}  
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+
+                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                   <p style ="color: yellow;"> <strong>Hey!!</strong>{{message}}</p>
+                   {% comment %} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
+               </div>           
+        {% endfor %}
+    
+        
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required> 
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton">
+          <a href="{% url 'login' %}"></a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  <script>
+    const sad = "{% url 'login' %}";
+  </script>   
+    {% comment %} <script src="{% static 'SignUp.js' %}" defer></script>  {% endcomment %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="post" action="{% url 'sign' %}">
+        {% csrf_token %}
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton" value="Sign Up">
+          <a href="{% url 'login' %}"> </a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  
+  
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html>
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="post" action="{% url 'sign_up' %}">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="message">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton" value="Sign Up">
+          <a href="{% url 'login' %}"> </a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  
+  <script>
+    // Store user data in local storage
+    const userData = {{ add_customer_and_admin|safe }};
+    localStorage.setItem('userData', JSON.stringify(userData));
+  </script>
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html>
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset >
+      <h1>Sign up</h1>
+      <form class="ys" method="POST">{% csrf_token %}   
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton">
+          <a href="{% url 'login' %}">Login</a>
+         </div>
+         {% if error %}
+           <div class="error">{{ error }}</div>
+         {% endif %}
+      </form>
+    </fieldset>
+  </div>
+  
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="post">
+        {% csrf_token %}
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton">
+          <a href="{% url 'login' %}">Login</a>
+        </div>
+      </form>
+      {% if error %}
+        <p style="color:red;">{{ error }}</p>
+      {% endif %}
+    </fieldset>
+  </div>
+  
+  <div>
+    <h2>Existing Users</h2>
+    <ul>
+      {% for user in add_customer_and_admin %}
+        <li>{{ user.username }} - {{ user.email }} {% if user.ISAdmin %} (Admin) {% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <script>
+    const sad = "{% url 'login' %}";
+  </script>
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="post" action="{% url 'sign' %}">
+        {% csrf_token %}
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton" value="Sign Up">
+          <a href="{% url 'login' %}"> </a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  
+  <script>
+    // Store user data in local storage
+    const userData = {{ add_customer_and_admin|safe }};
+    localStorage.setItem('userData', JSON.stringify(userData));
+  </script>
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ {% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="post" action="{% url 'sign' %}">
+        {% csrf_token %}
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton" value="Sign Up">
+          <a href="{% url 'login' %}"> </a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  
+  <script>
+    const sad = "{% url 'login' %}";
+  </script>  
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html> 
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ {% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset >
+      <h1>Sign up</h1>
+      <form class="ys" method = "POST">{% csrf_token %}   
+        <div>
+          <input id="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" type="password" placeholder="Password" required> 
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton">
+           <a href = "{% url 'login' %}"> </a> 
+          </div>
+      </form>
+    </fieldset>
+  </div>
+  
+   <script>
+    const sad = "{% url 'login' %}";
+  </script>  
+  <script src="{% static 'SignUp.js' %}" defer></script>
+</body>
+</html>        {% endcomment %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'SignUp.css' %}">
+</head>
+<body>
+  <div class="yousef">
+    <fieldset>
+      <h1>Sign up</h1>
+      <form class="ys" method="POST">{% csrf_token %}   
+        <div>
+          <input id="username" name="username" type="text" placeholder="Username" required>
+        </div>
+        <br>
+        <div>
+          <input id="password" name="password" type="password" placeholder="Password" required> 
+        </div>
+        <br>
+        <div>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+        </div>
+        <br>
+        <div>
+          <input id="email" name="email" type="email" placeholder="Email address" required>
+        </div>
+        <br>
+        <div>
+          <label style="color:whitesmoke" for="ad"><b>Is admin?</b></label>
+          <input id="ad" name="ad" type="checkbox">
+        </div>
+        <div class="B">
+          <input type="submit" id="submitButton">
+          <a href="{% url 'login' %}"></a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  <script>
+    const sad = "{% url 'login' %}";
+  </script>  
+   {% comment %} <script src="{% static 'SignUp.js' %}" defer></script>  {% endcomment %}
+{% comment %} </body>
+</html>         {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

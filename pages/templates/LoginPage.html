@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cslogin.css' %}">
+    <title>Login Page</title>
+</head>
+<body>
+    <form id="forms" class="center" method="post">
+        {% for message in messages %}  
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+
+                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                   <p style ="color: yellow;"> <strong>Hey!!</strong>{{message}}</p>
+                   {% comment %} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
+               </div>           
+        {% endfor %}
+    
+
+
+        {% csrf_token %}
+        <br><br><br><br><br><br>
+        <div id="myDiv">
+            <h1>Login</h1>
+        </div>
+        <br><br><br>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <div class="center input-wrapper">
+            <input type="text" id="text-input" name="text-input" placeholder="User name">
+        </div>
+        <br><br>
+        <div class="center input-wrapper">
+            <input type="password" id="password-input" name="password-input" placeholder="Password">
+        </div>
+        <br>
+        <div class="center">
+            <div>
+                <input type="checkbox" id="show-password">
+                <label id="show-password-label" for="show-password">Show password</label>
+            </div>
+        </div>
+        <div class="center">
+            <input type="submit" value="Login">
+        </div>
+        <div id="create_account" class="upSpace" style="text-align: center;">
+            <h5>Don't have an account? <label for="text-input"><a href="{% url 'sign' %}"><b>Create account</b></a></label> now</h5>
+        </div>
+    </form>
+
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+ {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cslogin.css' %}">
+    <title>Login Page</title>
+</head>
+<body>
+  <form id="forms" class="center" method="post">
+      {% csrf_token %} 
+      <br><br><br><br><br><br>
+      <div id="myDiv">
+          <h1>Login</h1>
+      </div>
+      <br><br><br>
+      <div class="center input-wrapper">
+          <input type="text" id="text-input" name="text-input" placeholder="User name">
+      </div>
+      <br><br>
+      <div class="center input-wrapper">
+          <input type="password" id="password-input" name="password-input" placeholder="Password">
+      </div>
+      <br>
+      <div class="center">
+          <div>
+              <input type="checkbox" id="show-password">
+              <label id="show-password-label" for="show-password">Show password</label>
+          </div>
+      </div>
+      <div class="center">
+          <input type="submit" value="Login">
+      </div>
+      <div id="create_account" class="upSpace" style="text-align: center;">
+          <h5>Don't have an account? <label for="text-input"><a href="{% url 'sign' %}"><b>Create account</b></a></label> now</h5>
+      </div>
+  </form>
+
+  <script>
+      const adminUrl = "{% url 'admin' %}";
+      const userUrl = "{% url 'user' %}";
+  </script>
+  <script src="{% static 'jslogin.js' %}" defer></script>
+</body>
+</html> 
+
+
+ {% endcomment %}

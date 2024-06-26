@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'adminmain.css' %}" >
+    <title>Recipe Finder</title>
+  </head>
+  <body>
+    <header>
+      {% comment %} <a href="MainPage.html" class="logo">Recipe Finder</a> {% endcomment %}
+      <nav class="navigation">
+        <a href="{% url 'sign' %}">
+        <button type="button" name="button">Sign Up</button>
+       </a>
+        <a href="{% url 'login' %}">
+          <button type="button" name="button">Login</button>
+        </a>
+        <a href="{% url 'add' %}">
+          <button type="button" name="button">Add Recipe</button>
+        </a>
+        <a href="{% url 'list' %}">
+          <button type="button" name="button">Recipes</button>
+        </a>
+      </nav>
+      </header>
+
+      <section class="main">
+        <div>
+          <p>Welcome admin to Recipe Finder Website</p>
+          
+        </div>
+      </section>
+  </body>
+</html>

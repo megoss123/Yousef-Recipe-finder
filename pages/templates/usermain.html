@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'usermain.css' %}">
+    <title>Recipe Finder</title>
+</head>
+<body>
+<header>
+    <a href="{% url 'login' %}" class="logo">Recipe Finder</a>
+    <nav class="navigation">
+        <a href="{% url 'favourite' %}">
+            <button type="button" name="button">Favorites</button>
+        </a>
+        <a href="{% url 'search' %}">
+            <button type="button" name="button">Search</button>
+        </a>
+        <a href="{% url 'list' %}">
+            <button type="button" name="button">Recipes</button>
+        </a>
+    </nav>
+</header>
+
+<section class="main">
+    <div>
+        <h1>Welcome to Recipe Finder Website</h1>
+        <p>Our website aims to help users connect together, browse recipes and view detailed steps to perform any recipe.</p>
+    </div>
+</section>
+
+</body>
+</html>

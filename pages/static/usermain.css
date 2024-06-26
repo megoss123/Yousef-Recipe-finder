@@ -1,0 +1,68 @@
+div>h1{
+  font-size: xx-large;
+  color: #FFAE42;
+}
+div>p{
+  color:#FFAE42;
+  font-size: medium;
+
+}
+header{
+  background-color: #000000;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 10px 100px;
+}
+
+html{
+  background-image: url(back1.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+body{
+  background-image: url(back1.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.logo{
+  padding-right: 500px;
+  text-decoration: none;
+  color: orange;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.navigation a{
+  color: black;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding-left: 20px;
+}
+
+section {
+  padding: 200px 200px;
+}
+
+button{
+  color: black;
+  background-color: orange;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 10px;
+  letter-spacing: 1px;
+  border-radius: 15px;
+}
+
+button:hover{
+  background-color: #FFAE42;
+  transform: scale(1.1);
+  cursor: pointer;
+}

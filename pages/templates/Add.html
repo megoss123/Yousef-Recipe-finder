@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="{% static 'add.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin:index' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Add New Recipe</h1>
+    <form action="{% url 'add' %}" method="post">{% csrf_token %}
+        <label for="recipe_name">Recipe Name:</label>
+        <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe Name" required>
+        <div>
+            <label for="recipe_id">ID:</label>
+            <input type="number" name="id" placeholder="ID" required id="recipe_id">
+        </div>
+        <br>
+        <label for="course">Course:</label>
+        <select name="course" id="course">
+            <option value="appetizers">Appetizers</option>
+            <option value="main_course">Main Course</option>
+            <option value="dessert">Dessert</option>
+        </select>
+        <br>
+        <label for="ingredients">Ingredients:</label>
+        <ul id="ingredientList">
+            <li>
+                <input type="text" name="ingredientName" placeholder="Ingredient Name" id="IngredientName">
+                <input type="number" name="ingredientQuantity" placeholder="Quantity" min=0 max=99 id="IngredientQuantity">
+            </li>
+        </ul>
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <br><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="5" required></textarea>
+        <br>
+        <button type="submit" id="addBtn">Add Recipe</button>
+    </form>
+
+    {% comment %} <script src="{% static 'Add.js' %}" defer></script> {% endcomment %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="{% static 'add.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Add New Recipe</h1>
+    <form action="#" method="post">{%csrf_token%}
+        <label for="recipe_name">Recipe Name:</label>
+        <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe Name" required>
+        <div>
+            <label for="recipe_id">ID:</label>
+            <input type="number" name="id" placeholder="ID" required id="recipe_id">
+        </div>
+        <br>
+        <label for="course">Course:</label>
+        <select name="course" id="course">
+            <option value="appetizers">Appetizers</option>
+            <option value="main_course">Main Course</option>
+            <option value="dessert">Dessert</option>
+        </select>
+        <br>
+        <label for="ingredients">Ingredients:</label>
+        <ul id="ingredientList">
+            <li>
+                <input type="text" name="ingredientName" placeholder="Ingredient Name" id="IngredientName">
+                <input type="number" name="ingredientQuantity" placeholder="Quantity" min=0 max=99 id="IngredientQuantity">
+            </li>
+        </ul>
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <br><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="5" required></textarea>
+        <br>
+    </form>
+    <button type="submit" id="addBtn">Add Recipe</button>
+
+    <script src="{% static 'Add.js' %}" defer></script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="add.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="adminmain.html" class="logo">Recipe Finder</a>
+        <div class="navigation">
+          <a href="favourite.html">
+            <button class="navbar" type="button" name="button">Favorites</button>
+          </a>
+          <a href="search.html">
+            <button class="navbar" type="button" name="button">Search</button>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <h1>Add New Recipe</h1>
+    <form action="/add_recipe" method="post">
+      <label for="recipe_name">Recipe Name:</label>
+      <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe Name" required>
+      <div>
+        <label for="id">ID:</label>
+        <input type="number" name="id" placeholder="ID" required id="recipe_id">
+      </div>
+      <br>
+      <label for="course">Course:</label>
+      <select name="course" id="course">
+        <option value="appetizers">Appetizers</option>
+        <option value="main_course">Main Course</option>
+        <option value="dessert">Dessert</option>
+      </select>
+      <br>
+      <label for="ingredients">Ingredients:</label>
+      <ul>
+        <li>
+          <input type="text" name="ingredientName" placeholder="Ingredient Name" id="IngredientName">
+          <input type="number" name="ingredientQuantity" placeholder="Quantity" min=0 max= 99 id="IngredientQuantity">
+        </li>
+      </ul>
+      <button type="button" onclick="addIngredient()">Add Ingredient</button>
+      <br><br>
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" rows="5" required></textarea>
+      <br>
+    </form>
+    <button type="submit" id="addBtn">Add Recipe</button>
+
+    <script src="Add.js"></script>
+  </body>
+</html> -->

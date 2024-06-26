@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of recipes</title>
+    <link rel="stylesheet" href="{% static 'listo.css' %}">
+    
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'add' %}">
+                    <button class="navbar" type="button" name="button">Add Recipe</button>
+                </a>
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="recipe-list">
+        <form method="POST"> {% csrf_token %}
+             
+          </form> 
+
+         {% for recipe in recipes %}
+        <div class="recipe" data-recipe-id="{{ recipe.id }}">
+            <h2>{{ recipe.recipe_name }}</h2> 
+            
+             <p class="ingredients">{{ recipe.ingredients }}</p>
+            <p class="description">{{ recipe.description }}</p>
+            <p class="quantity">{{ recipe.quantity }}</p>
+            <p class="course">{{ recipe.course }}</p>   
+             {% comment %} <button onclick="ShowDetails()">Details</button>  {% endcomment %}
+        </div>
+        {% endfor %}
+    </div>
+
+     {% comment %} <script src="{% static 'Listo.js' %}"></script>  {% endcomment %}
+ </body>
+</html>     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of recipes</title>
+    <link rel="stylesheet" href="{% static 'listo.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'add' %}">
+                    <button class="navbar" type="button" name="button">Add Recipe</button>
+                </a>
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="recipe-list">
+        {% for recipe in recipes %}
+        <div class="recipe" data-recipe-id="{{ recipe.id }}">
+            <h2>{{ recipe.recipe_name }}</h2>
+            <p class="ingredients">{{ recipe.ingredients }}</p>
+            <p class="description">{{ recipe.description }}</p>
+            <p class="quantity">{{ recipe.quantity }}</p>
+            <p class="course">{{ recipe.course }}</p>
+            <button>Details</button>
+            {% if is_admin %}
+            <form action="{% url 'delete_recipe' recipe.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{% static 'Listo.js' %}"></script> 
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of recipes</title>
+    <link rel="stylesheet" href="{% static 'listo.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'add' %}">
+                    <button class="navbar" type="button" name="button">Add Recipe</button>
+                </a>
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="recipe-list">
+        <form method="POST"> {% csrf_token %}
+            
+        </form>
+
+        {% for recipe in recipes %}
+        <div class="recipe" data-recipe-id="{{ recipe.id }}">
+            <h2>{{ recipe.recipe_name }}</h2>
+            <p class="ingredients">{{ recipe.ingredients }}</p>
+            <p class="description">{{ recipe.description }}</p>
+            <p class="quantity">{{ recipe.quantity }}</p>
+            <p class="course">{{ recipe.course }}</p>
+            <button>Details</button>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+    {% comment %} <script src="{% static 'Listo.js' %}"></script> {% endcomment %}
+ {% comment %} </body>
+</html> 
+   {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Recipes</title>
+    <link rel="stylesheet" href="{% static 'listo.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'add' %}">
+                    <button class="navbar" type="button" name="button">Add Recipe</button>
+                </a>
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="recipe-list"></div>
+
+    {% comment %} <script src="{% static 'listo.js' %}" defer></script> {% endcomment %}
+{% comment %} </body>
+</html>  {% endcomment %}
+
+
+
+
+
+
+
+{% comment %} 
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of recipes</title>
+    <link rel="stylesheet" href="{% static 'listo.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="add.html">
+                    <button class="navbar" type="button" name="button">Add Recipe</button>
+                </a>
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="recipe-list" method="POST"> {% csrf_token %}
+        <div class="recipe" data-recipe-id="1">
+            <h2>Pasta</h2>
+            <p class="ingredients">Makrona WhiteSous chicken</p>
+            <p class="description">Beautiful</p>
+            <p class="Quantity">5</p>
+            <p class="Course">main_course</p>
+            <button>Details</button>
+        </div>
+
+        <div class="recipe" data-recipe-id="2">
+            <h2>RiceWithCorn</h2>
+            <p class="ingredients">Rice Corn Oil</p>
+            <p class="description">Nice</p>
+            <p class="Quantity">10</p>
+            <p class="Course">main_course</p>
+            <button>Details</button>
+        </div>
+
+        <div class="recipe" data-recipe-id="3">
+            <h2>Pizza</h2>
+            <p class="ingredients">Flour Katshup Tomato</p>
+            <p class="description">Good</p>
+            <p class="Quantity">20</p>
+            <p class="Course">main_course</p>
+            <button>Details</button>
+        </div>
+    </div>
+
+    {% comment %} <script src="Listo.js"></script> {% endcomment %}
+{% comment %} </body>
+</html>   {% endcomment %}
+
+
+
+

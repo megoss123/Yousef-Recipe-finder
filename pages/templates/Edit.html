@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+    <link rel="stylesheet" href="{% static 'edit.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+            <div class="navigation">
+                <a href="{% url 'favourite' %}">
+                    <button class="navbar" type="button" name="button">Favorites</button>
+                </a>
+                <a href="{% url 'search' %}">
+                    <button class="navbar" type="button" name="button">Search</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Edit Recipe</h1>
+    <form action="#" method="post">
+        <label for="recipe_name">Recipe Name:</label>
+        <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe Name" required>
+        <div>
+            <label for="recipe_id">ID:</label>
+            <input type="number" name="id" placeholder="ID" required id="recipe_id" readonly>
+        </div>
+        <br>
+        <label for="course">Course:</label>
+        <select name="course" id="course">
+            <option value="appetizers">Appetizers</option>
+            <option value="main_course">Main Course</option>
+            <option value="dessert">Dessert</option>
+        </select>
+        <br>
+        <label for="ingredients">Ingredients:</label>
+        <ul id="ingredientList">
+            <!-- Ingredient list will be populated dynamically -->
+        </ul>
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <br><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="5" required></textarea>
+        <br>
+    </form>
+    <button type="submit" id="updateBtn">Update Recipe</button>
+
+    <script src="{% static 'Edit.js' %}" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="edit.css">
+  <title>Edit Recipe</title>
+</head>
+<body>
+  <header>
+    <a href="MainPage.html" class="logo">Recipe Finder</a>
+    <nav class="navigation">
+      <a href="Add.html">
+        <button type="button" name="button">Add Recipe</button>
+      </a>
+      <a href="listo.html">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+    </header>
+
+  <section>
+    <h1>Edit Recipe</h1>
+     <label for="recipe_name">Recipe Name: </label>
+     <input type="text" name="recipe_name" id="recipe_name" placeholder="Rceipe Name" required>
+     <br>
+     <label for="recipe_id">ID: </label>
+     <input type="text" name="recipe_id" placeholder="ID">
+     <br>
+     <label for="course">Course:</label>
+     <select name="course" id="course">
+       <option value="appetizers">Appetizers</option>
+       <option value="main_course">Main Course</option>
+       <option value="dessert">Dessert</option>
+     </select>
+     <br>
+     <form class="select_img" action="/upload" method="post" enctype="multipart/form-data">
+       <label for="upload">Edit Image: </label>
+       <input type="file" id="upload" name="Recipe Image" alt="Submit" accept="image/*">
+       <input type="submit" value="Upload">
+     </form>
+     <br>
+     <label for="ingredients">Ingredients:</label>
+     <ul>
+       <li>
+         <input type="text" name="ingredients" placeholder="Ingredient Name">
+         <input type="number" name="ingredients" placeholder="Quantity">
+       </li>
+       <li>
+         <input type="text" name="ingredients" placeholder="Ingredient Name">
+         <input type="number" name="ingredients" placeholder="Quantity">
+       </li>
+       <li>
+         <input type="text" name="ingredients" placeholder="Ingredient Name">
+         <input type="number" name="ingredients" placeholder="Quantity">
+       </li>
+     </ul>
+     <button type="button">Update Ingredients</button>
+     <br>
+     <label for="description">Description:</label>
+     <textarea name="description" id="description" rows="5" required placeholder="Description"></textarea>
+     <br>
+     <button type="submit">Update Recipe</button>
+   </form>
+  </section>
+  <!-- <script>
+    function addIngredient() {
+      const ingredientsList = document.querySelector("ul");
+      const newIngredient = ingredientsList.firstElementChild.cloneNode(true);
+      newIngredient.querySelectorAll("input[type='text']").forEach(input => input.value = "");
+      ingredientsList.appendChild(newIngredient);
+    }
+  </script> -->
+</body>
+</html> -->

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'Home.css' %}">
+    <title>Recipe Finder</title>
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}" class="logo">Recipe Finder</a>
+      <nav class="navigation">
+        <a href="{% url 'sign' %}">
+          <button type="button" name="button">Sign Up</button>
+        </a>
+        <a href="{% url 'login' %}">
+          <button type="button" name="button">Login</button>
+        </a>
+      </nav>
+      </header>
+
+      <section class="main">
+        <div>
+          <h1>Welcome To FCI Recipe Finder Website</h1>
+          {% comment %} p>Our website aims to help users connect together, browse recipes and view detailed steps to perform any recipe.</p> {% endcomment %}
+        </div>
+      </section>
+  </body>
+</html>

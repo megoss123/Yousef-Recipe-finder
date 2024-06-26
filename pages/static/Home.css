@@ -1,0 +1,69 @@
+div> h1{
+  
+  font-size:5cqmax;
+  color:bisque;
+
+
+}
+header{
+    background-color: #000000;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 5px 100px;
+    margin-bottom: auto;
+  }
+  
+  html{
+    background-image: url(back1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+  }
+  
+  body{
+    background-image: url(back1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+  }
+  
+  .logo{
+    padding-right: 700px;
+    text-decoration: none;
+    color: orange;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.8em;
+  }
+  
+  .navigation a{
+    color: #800080;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding-left: 100px;
+   
+  }
+  
+  section {
+    padding: 100px 100px;
+  }
+  
+  button{
+    color: black;
+    background-color: orange;
+    font-size: 0.7em;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 10px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+  }
+  
+  button:hover{
+    background-color: #FFAE42;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  

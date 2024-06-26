@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Recipes</title>
+    <link rel="stylesheet" href="{% static 'favo.css' %}">
+</head>
+<body>
+
+  <header>
+    <a href="{% url 'admin' %}" class="logo">Recipe Finder</a>
+    <nav class="navigation">
+      <a href="{% url 'sign' %}">
+        <button class="navbar" type="button" name="button">Sign Up</button>
+      </a>
+      <a href="{% url 'login' %}">
+        <button class="navbar" type="button" name="button">Login</button>
+      </a>
+      <a href="{% url 'add' %}">
+        <button class="navbar" type="button" name="button">Add Recipe</button>
+      </a>
+      <a href="{% url 'favourite' %}">
+        <button class="navbar" type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'search' %}">
+        <button class="navbar" type="button" name="button">Search</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button class="navbar" type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <div class="formE favo">
+    <ul id="recipeList">
+      <li onclick="toggleButtons(this)">
+        <a href="#">Recipe Name 1</a>
+        <button type="button" class="hidden" onclick="removeRecipe(this)">Remove</button>
+        <button type="button" class="hidden" onclick="inspectRecipe(this)">Inspect</button>
+      </li>
+      <li onclick="toggleButtons(this)">
+        <a href="#">Recipe Name 2</a>
+        <button type="button" class="hidden" onclick="removeRecipe(this)">Remove</button>
+        <button type="button" class="hidden" onclick="inspectRecipe(this)">Inspect</button>
+      </li>
+      <li onclick="toggleButtons(this)">
+        <a href="#">Recipe Name 3</a>
+        <button type="button" class="hidden" onclick="removeRecipe(this)">Remove</button>
+        <button type="button" class="hidden" onclick="inspectRecipe(this)">Inspect</button>
+      </li>
+    </ul>
+    <button id="addRecipeButton">Add Recipe</button>
+  </div>
+  <div id="infoArea"></div>
+  <script src="{% static 'favo.js' %}" defer></script>
+</body>
+</html>

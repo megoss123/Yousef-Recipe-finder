@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+      <a href="{% url 'user' %}" class="logo">Recipe Finder</a>
+      <a href="{% url 'favourite' %}">
+        <button type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Display messages -->
+  
+  <!-- Search for recipes -->
+  <form id="searchForm" method="get" action="{% url 'search' %}">
+    {% csrf_token %}
+    <input id="searchInput" name="q" type="search" placeholder="Search for more recipes" value="{{ query }}" required /><br />
+  </form>
+
+  <div id="allRecipes">
+{%if recipes %}
+  {% for recipe in recipes %}
+     <div class="recipe">
+        <h2 style="color: red;">{{ recipe.recipe_name }}</h2>
+        <p>{{ recipe.ingredients }}</p>
+     </div>
+
+  
+  {% endfor %}
+
+   
+
+  
+{% else %}
+
+  {% comment %} <p style="color: yellow;">This Recipe Not Found</p> {% endcomment %}
+     
+{%endif%}
+  
+  </div>
+
+  {% comment %} <script src="{% static 'search.js' %}" defer></script> {% endcomment %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+      <a href="{% url 'user' %}" class="logo">Recipe Finder</a>
+      <a href="{% url 'favourite' %}">
+        <button type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Search for recipes -->
+  <form id="searchForm" method="GET" action="{% url 'search' %}">
+    {% csrf_token %}
+    <input id="searchInput" type="search" placeholder="Search for more recipes" required /><br />
+  </form>
+
+  <div id="allRecipes">
+    <!-- All the recipes will be concatenated here -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'search.js' %}" defer></script>
+</body>
+</html> {% endcomment %}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+      <a href="{% url 'user' %}" class="logo">Recipe Finder</a>
+      <a href="{% url 'favourite' %}">
+        <button type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Search for recipes -->
+  <form id="searchForm">
+    {% csrf_token %}
+    <input id="searchInput" type="search" placeholder="Search for more recipes" required /><br />
+  </form>
+
+  <div id="allRecipes">
+    <!-- All the recipes will be concatenated here -->
+  </div>
+
+  <script src="{% static 'search.js' %}" defer></script> 
+</body>
+</html> {% endcomment %}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+      <a href="{% url 'user' %}" class="logo">Recipe Finder</a>
+      <a href="{% url 'favourite' %}">
+        <button type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Search for recipes -->
+  <form id="searchForm">
+    {% csrf_token %}
+    <input id="searchInput" name="q"  type="search" placeholder="Search for more recipes" required /><br />
+  </form>
+
+  <div id="allRecipes">
+    <!-- All the recipes will be concatenated here -->
+  </div>
+
+  {% comment %} <script src="{% static 'search.js' %}" defer></script>  {% endcomment %}
+ {% comment %} </body>
+</html>      {% endcomment %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+
+<link rel="stylesheet" href="{% static 'search.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+    <a href="{% url 'user' %}" class="logo">Recipe Finder</a>
+      <a href="{% url 'favourite' %}">
+        <button type="button" name="button">Favorites</button>
+      </a>
+      <a href="{% url 'list' %}">
+        <button type="button" name="button">Recipes</button>
+      </a>
+    </nav>
+  </header>
+
+  <!--search for reccepies-->
+  <form>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search for more recepies"
+      required
+    /><br />
+  </form>
+  <!-- <button type="search">Search</button> -->
+
+  <div
+    id="allRecipes"  >
+    <!-- all the recipes will be concatinated here by cartoona method -->
+
+  </div>
+
+   {% comment %} <script src="{% static 'search.js' %}" defer></script>  {% endcomment %}
+
+ {% comment %} </body>
+</html>    {% endcomment %} 
+
+
+ <!-- display function hereeeeee -->
+
+{% comment %} let recipeList = [];
+
+if (localStorage.getItem("recipeList") != null) {
+  recipeList = JSON.parse(localStorage.getItem("recipeList"));
+}
+
+var searchValue = document.getElementById("searchInput");
+
+searchValue.addEventListener("keyup", function () {
+  var temp = "";
+  for (var i = 0; i < recipeList.length; i++) {
+ {
+      var x = `<div class= "recipeCard">
+
+          <h3>${recipeList[i].recipe_name}</h3>
+          <p>${recipeList[i].description}</p>
+
+          </div>`;
+      temp += x;
+    }
+  }
+  document.querySelector("#allRecipes").innerHTML = temp;
+}); {% endcomment %}
